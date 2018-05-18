@@ -1,3 +1,4 @@
+
 SELECT * FROM person/ abschluss
 SELECT ID FROM person p, abschluss a WHERE benutzername.p = ´ ´
 SELECT praktika, max_Alter, min_Alter, Tests FROM abschluss WHERE ID =´ ´
@@ -5,3 +6,9 @@ SELECT Alter, email, Qualifikationen, Zusatzqualifikationen FROM person WHERE be
 SELECT a.ID FROM person p, abschluss a WHERE p.benutzername = benutzername AND min_Alter<=p.alter AND max_Alter>=p.alter
 SELECT ID FROM abschluss WHERE praktika =´ ´
 SELECT a.ID FROM person p, abschluss a WHERE p.benutzername = benutzername AND p.qualifikationen =´ ´ AND p.zusatzqualifikationen=´ ´ AND a.praktika=´ ´
+
+//neue Daten
+UPDATE person SET qualifikationen= ' ' WHERE benutzername = ' '
+UPDATE person SET zusatzqualifikationen WHERE benutzername = ' '
+UPDATE person SET alter = ' ' WHERE benutzername = ' '
+UPDATE person p, abschluss a SET p.zusatzqualifikationen= ' ', p.qualifikationen= ' ', a.praktika =' ' WHERE p.benutzername = ' '
