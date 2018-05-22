@@ -1,0 +1,9 @@
+person(benutzername, passwort, vorname, name, email, geburtsdatum, kontotyp)
+abschluss(id, name, min_alter, max_alter, beschreibung)
+qualifikation(id, name, beschreibung)
+haengt_ab_a(id, haengt_ab)
+haengt_ab_q(id, haengt_ab)
+hat_a(benutzername, id)
+hat_q(benutzername, id)
+//ids kennzeichnen in id_a, id_q
+//dreieckiges ERD?
