@@ -12,3 +12,20 @@ UPDATE person SET qualifikationen= ' ' WHERE benutzername = ' '
 UPDATE person SET zusatzqualifikationen WHERE benutzername = ' '
 UPDATE person SET alter = ' ' WHERE benutzername = ' '
 UPDATE person p, abschluss a SET p.zusatzqualifikationen= ' ', p.qualifikationen= ' ', a.praktika =' ' WHERE p.benutzername = ' '
+
+//ein Abschluss wird eingegeben, mehrere werden ausgegeben
+SELECT a.name FROM abschluss a, qualifikation q, haengt_ab_a, haengt_ab_q WHERE a.id = haengt_ab_a.id AND q.id = haengt_ab_q.id AND q.name = ' ' OR q.name = ' ' O
+SELECT a.name FROM abschluss a, 
+
+//Daten einfügen:
+INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "ohne Abschluss", 0,0, "Sie haben noch keinen schulischen Abschluss gemacht. Ohne Abschluss können Sie nur wenige Ausbildungen beginnen.")
+INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "Hauptschulabschluss", 0, 0, "Sie haben einen qualifizierenden Hauptschulabschluss gemacht. Hiermit stehen Ihnen eine große Anzahl an Ausbildungswegen zur Verfügung")
+INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "mittlere Reife",0,0, "Sie besitzen die mittlere Reife/ haben sinen Realschulabschluss gemacht. Damit können Sie fast alle Ausbildungen beginnen.")
+INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "Fachhochschulreife",0,0, "Sie haben die Fachhochschulreife gemacht. Damit können Sie an jeder Fachoberschule studieren.")
+INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "fachgebundene Hochschulreife", 0,0, "Sie haben eine fachgebundene Hochschulreife. Sie dürfen diejenigen Fächer an einer Universität studieren, für welche Sie den Abschluss besitzen2)
+INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "Abitur", 0,0, "Sie haben das Abitur und somit den höchstmöglichen schulischen Abschluss. Damit stehen Ihnen im Prinzip alle Studiengänge und Ausbildungswege zur Verfügung.")
+
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (3,2)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (4,3)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (5,3)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (6,3)
