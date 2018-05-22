@@ -5,6 +5,7 @@ app.use(express.urlencoded({
     extended:true
 }));
 app.use(express.static('static'))
+app.use(express.static('static/html'))
 
 
 
