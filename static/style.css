@@ -1,6 +1,20 @@
-#navigation {
+.navbar{
     background-color: #f9b57a
 }
 body{
-    padding-top: 30px;
+    padding-top: 65px;
+}
+#jumbotron1{
+background-image: url("jumbotron-background.jpg");
+background-repeat: initial;
+}
+#jumbotron-btn{
+  background-color:#000000;
+  color: #ffffff;
+}
+#jumbotron-div{
+    color: #ffffff;
+}
+#navbar{
+    background-color: #ffffff;
 }
