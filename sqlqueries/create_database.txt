@@ -1,2 +1,52 @@
 CREATE DATABASE bildungswege;
+USE bildungswege;
+CREATE TABLE person(
+benutzername VARCHAR(30) NOT NULL,
+passwort VARCHAR(64) NOT NULL,
+vorname VARCHAR(50) NOT NULL,
+name VARCHAR(50) NOT NULL,
+email VARCHAR(70) NOT NULL,
+geburtsdatum DATE NOT NULL,
+kontotyp VARCHAR(20) NOT NULL,
+PRIMARY KEY(benutzername)
+);
+CREATE TABLE abschluss(
+id INT NOT NULL AUTO_INCREMENT,
+name VARCHAR(200) NOT NULL,
+min_alter INT DEFAULT 0,
+max_alter INT DEFAULT 0,
+beschreibung VARCHAR(255),
+PRIMARY KEY(id)
+);
+CREATE TABLE qualifikation(
+id INT NOT NULL AUTO_INCREMENT,
+name VARCHAR(200) NOT NULL,
+beschreibung VARCHAR(255),
+PRIMARY KEY(id)
+);
+CREATE TABLE haengt_ab_a(
+id INT NOT NULL,
+haengt_ab INT NOT NULL,
+FOREIGN KEY(id) REFERENCES abschluss(id),
+FOREIGN KEY(haengt_ab) REFERENCES abschluss(id)
+);
+CREATE TABLE haengt_ab_q(
+id INT NOT NULL,
+haengt_ab INT NOT NULL,
+FOREIGN KEY(id) REFERENCES abschluss(id),
+FOREIGN KEY(haengt_ab) REFERENCES qualifikation(id)
+);
+CREATE TABLE hat_a(
+benutzername VARCHAR(30) NOT NULL,
+id INT NOT NULL,
+FOREIGN KEY(benutzername) REFERENCES person(benutzername),
+FOREIGN KEY(id) REFERENCES abschluss(ID)
+);
+CREATE TABLE hat_q(
+benutzername VARCHAR(30) NOT NULL,
+id INT NOT NULL,
+FOREIGN KEY(benutzername) REFERENCES person(benutzername),
+FOREIGN KEY(id) REFERENCES qualifikation(ID)
+);
+
 

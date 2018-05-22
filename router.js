@@ -1,5 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var index = require('./routes/index.js')
+var index = require('./routes/index.js');
+var login = require('./routes/login.js');
+var login_submit = require('./routes/login_submit.js');
+var register = require('./routes/register.js');
+var register_submit = require('./routes/register_submit.js');
 router.get('/', index);
+router.get('/login', login);
+router.post('/login', login_submit);
+router.get('/register', register);
+router.post('/register', register_submit);
 module.exports = router;
