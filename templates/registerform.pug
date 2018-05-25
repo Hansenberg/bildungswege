@@ -1,0 +1,32 @@
+.container-fluid
+    form#register(method="POST" action="register")
+        .form-group
+            label(for="username") Benutzername
+            input#username.form-control(type="text" aria-describedby="usernameHelp" placeholder="Benutzername")
+            small#usernameHelp.form-text.text-muted Geben sie hier ihren gewünschten Benutzernamen ein.
+        .form-group
+            label(for="email") E-Mail-Adresse
+            input#email.form-control(type="email" aria-describedby="emailHelp" placeholder="E-Mail eingeben")
+            small#emailHelp.form-text.text-muted Ihre E-Mail wird nicht an dritte weitergegeben.
+        .form-group
+            label(for="password") Passwort
+            input#password.form-control(type="password" aria-describedby="passwordHelp" placeholder="Passwort")
+            small#passwordHelp.form-text.text-muted Passwörter müssen mindestens 8 Zeichen lang sein.
+        .form-group
+            label(for="passwordCompare") Passwort bestätigen
+            input#passwordCompare.form-control(type="password" aria-describedby="passwordCompareHelp" placeholder="Passwort erneut eingeben")
+            small#passwordCompareHelp.form-text.text-muted Bestätigen sie hier ihr Passwort.
+        .form-group
+            label(for="first_name") Vorname
+            input#first_name.form-control(type="text" aria-describedby="first_nameHelp" placeholder="Vornamen eingeben")
+            small#first_nameHelp.form-text.text-muted Dieses Feld darf nicht leer sein.
+        .form-group
+            label(for="last_name") Nachname
+            input#last_name.form-control(type="text" aria-describedby="last_nameHelp" placeholder="Nachnamen eingeben")
+            small#last_nameHelp.form-text.text-muted Dieses Feld darf nicht leer sein.
+        .form-group
+            label(for="birth_date") Geburtsdatum
+            input#birth_date.form-control(type="date" name="birth_date" aria-describedby="birth_dateHelp" placeholder="JJJJ-MM-TT")
+            small#birth_dateHelp.form-text.text-muted Geben sie ihr Geburtsdatum im Format JJJJ-MM-TT an.
+        .form-group
+            button.btn.btn-primary(type="submit") Registrieren
