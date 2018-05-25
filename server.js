@@ -55,7 +55,7 @@ passport.use(new LocalStrategy(function(username, password, done){
     });
     check_pwd = function(sqlResult){
         if (!sqlResult[0]){
-            return done(null, false, { message: 'Benutzer nicht gefunden.'})
+            return done(null, false)
         }
         var resultPassword = sqlResult[0].passwort;
         bcrypt.compare(password, resultPassword, function(err, res) {
@@ -65,7 +65,7 @@ passport.use(new LocalStrategy(function(username, password, done){
                     ret_user(res);
                 })
             }else{
-                return done(null, false, { message: 'Falsches Passwort.' })
+                return done(null, false)
             }
         });
     }

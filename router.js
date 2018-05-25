@@ -31,6 +31,6 @@ router.get('/profile', profile);
 router.get('/settings', settings);
 
 //set up post routes
-router.post('/login', passport.authenticate('local',  { successRedirect: '/profile', failureRedirect: '/login', failureFlash: true }), login_submit);
+router.post('/login', passport.authenticate('local',  { successRedirect: '/profile', failureRedirect: '/login'}), login_submit);
 router.post('/register', register_submit);
 module.exports = router;
