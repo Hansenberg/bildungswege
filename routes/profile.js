@@ -5,15 +5,21 @@ var sqlcon = new sql_connect();
 module.exports = function(req, res){
     var main = pug.compileFile('./templates/main.pug', {pretty:true});
     var main_auth = pug.compileFile('./templates/main_auth.pug',  {pretty:true});
+    var profile = pug.compileFile('./templates/profile.pug', {pretty:true});
     if (req.user) {
         res.send(main_auth({
-            content: req.user.password
+            content: profile({
+                username: req.user.username,
+                email: req.user.email,
+                first_name: req.user.first_name,
+                last_name: req.user.last_name,
+                birth_date: req.user.birth_date,
+                account: req.user.account
+            })
         }));
         
     } else {
-        res.send(main({
-            content:'sie sind nicht eingeloggt'
-        }));
+        res.redirect('/login');
     }
     
 }

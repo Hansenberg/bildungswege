@@ -5,9 +5,7 @@ module.exports = function(req, res){
     var loginform = pug.compileFile('./templates/loginform.pug', {pretty: true});
     var content = 'about';
     if (req.user) {
-        res.send(main_auth({
-            content: loginform()
-        }));
+        res.redirect('/profile');
     } else {
         res.send(main({
             content: loginform()

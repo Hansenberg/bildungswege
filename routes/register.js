@@ -4,9 +4,7 @@ module.exports = function(req, res){
     var main_auth = pug.compileFile('./templates/main_auth.pug');
     var content = 'register';
     if (req.user) {
-        res.send(main_auth({
-            content: content
-        }));
+        res.redirect('/profile');
     } else {
         res.send(main({
             content: content
