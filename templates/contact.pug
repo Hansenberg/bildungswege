@@ -1,0 +1,16 @@
+article
+    h1 Kontaktformular
+    form(method="POST" action="contact")
+        .form-group
+            label(for="InputName") Name
+            input#InputName.form-control(type="name" placeholder="Max Mustermann")
+        .form-group
+            label(for="InputEmail") E-Mail-Adresse
+            input#InputEmail1.form-control(type="email" aria-describedby="emailHelp" placeholder="name@example.com")
+        .form-group
+            label(for="Inputsubject") Betreff
+            input#InputSubject.form-control(type="subject" placeholder="Betreff")
+        .form-group
+            label(for="InputMessage") Nachricht
+            textarea#InputMessage.form-control(rows="5")
+        button.btn.btn-primary(type="submit") Abschicken
