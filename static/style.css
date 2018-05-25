@@ -1,5 +1,6 @@
-.navbar{
-    background-color: #f9b57a
+#navbar{
+    background-color: #6ec4df;
+    color: #fdfdfd;
 }
 body{
     padding-top: 65px;
@@ -14,7 +15,4 @@ background-repeat: initial;
 }
 #jumbotron-div{
     color: #ffffff;
-}
-#navbar{
-    background-color: #ffffff;
 }
