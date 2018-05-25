@@ -29,10 +29,10 @@ router.get('/datenschutz', datenschutz);
 router.get('/find', find);
 router.get('/profile', profile);
 router.get('/settings', settings);
-router.get('/contact', contact)
+router.get('/contact', contact);
 
 //set up post routes
 router.post('/login', passport.authenticate('local',  { successRedirect: '/profile', failureRedirect: '/login'}), login_submit);
 router.post('/register', register_submit);
-router.post('contact', contact_submit);
+router.post('/contact', contact_submit);
 module.exports = router;
