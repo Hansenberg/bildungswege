@@ -1,19 +1,46 @@
+.navbar.navbar-expand-lg.navbar-light.fixed-top a{
+    background-color: #4dacc9;
+    color: #fdfdfd;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
 #navbar{
-    background-color: #6ec4df;
+    background-color: #4dacc9;
     color: #fdfdfd;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 body{
+    background-color: #b9e8fa;
     padding-top: 65px;
+    margin-bottom: 50px;
 }
 #jumbotron1{
-background-image: url("jumbotron-background.jpg");
-background-repeat: initial;
+
 }
 #jumbotron-btn{
-  background-color:#000000;
   color: #ffffff;
+  background-color: #4dacc9;
 }
 #jumbotron-div{
-    color: #ffffff;
+    color: #000000;
+}
+h1{
+    word-break: break-all;
+    -ms-word-break:break-all;
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+position: absolute;
+bottom: 0;
+width: 95%;
+height:35px;
+}
+.navbar.navbar-expand-lg.navbar-light.fixed-top a.nav-button{
+    background-color: #127d9e;
 }
