@@ -45,3 +45,7 @@ height:35px;
 .navbar.navbar-expand-lg.navbar-light.fixed-top a.nav-button{
     background-color: #127d9e;
 }
+.btn.btn-default{
+    color: #ffffff;
+  background-color: #4dacc9;
+}
