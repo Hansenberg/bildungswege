@@ -2,6 +2,8 @@
 var passport = require('passport');
 var express = require('express');
 const{check, validationResult} = require('express-validator/check');
+var sql_connect = require('./custom_modules/sql_connect');
+var sqlcon = new sql_connect();
 //create Router object
 var router = express.Router();
 //import routes that handle requests
@@ -36,7 +38,39 @@ router.get('/contact', contact);
 router.post('/login', passport.authenticate('local',  { successRedirect: '/profile', failureRedirect: '/login'}), login_submit);
 //validate 
 router.post('/register',[
-
+    check('username').isLength({min: 5, max: 50}).withMessage('Benutzername muss mindestens 5 und maximal 50 Zeichen lang sein')
+    ,
+    /*
+    check('username').custom(
+        (value,{req, loc, path}) => {
+            sqlcon.connection.query('SELECT benutzername FROM person WHERE benutzername = "'+value+'"', function(err, res, fields){
+                if(err) throw err;
+                return res
+            })
+            .then(res => {
+                if(res[0]){
+                    return Promise.reject('Benutzername ist bereits vergeben.')
+                }
+            })
+            })
+    ,*/
+    check('email').isEmail().trim().normalizeEmail({all_lowercase: true}).withMessage('Geben sie eine gültige E-Mail-Adresse an.')
+    ,
+    check('password').isLength({min: 8, max: 50}).withMessage('Passwort muss mindestens 8 Zeichen lang sein.')
+    ,
+    check('passwordCompare').custom((value,{req, loc, path}) => {
+        if (value !== req.body.password) {
+            throw new Error("Passwords don't match");
+        } else {
+            return value;
+        }
+    }).withMessage('Passwörter stimmen nicht überein.')
+    ,
+    check('first_name').not().isEmpty().withMessage('Geben sie ihren Vornamen an.')
+    ,
+    check('last_name').not().isEmpty().withMessage('Geben sie ihren Nachnamen an.')
+    ,
+    check('birth_date').isISO8601().withMessage('Geben sie ihr Datum im Format JJJJ-MM-TT an.')
 ], register_submit);
 router.post('/contact',[
     check('name').not().isEmpty().withMessage('Das Feld "Name" darf nicht leer sein.')

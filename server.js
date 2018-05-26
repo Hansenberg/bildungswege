@@ -44,7 +44,13 @@ app.use(express.static('static'))
 app.use(express.static('static/html'))
 
 //use flash messages module
-app.use(flash())
+app.use(flash());
+app.use(function(req, res, next){
+    // if there's a flash message in the session request, make it available in the response, then delete it
+    res.locals.sessionFlash = req.session.sessionFlash;
+    delete req.session.sessionFlash;
+    next();
+});
 
 //setting up passport and local strategy for authentication of users
 //TODO: more intricate checking of user

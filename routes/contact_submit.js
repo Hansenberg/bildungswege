@@ -1,12 +1,12 @@
 var nodemailer = require('nodemailer');
 var flash = require('express-flash')
 var pug = require('pug');
+const{check, validationResult} = require('express-validator/check');
 
 var main = pug.compileFile('./templates/main.pug', {pretty:true});
 var main_auth = pug.compileFile('./templates/main_auth.pug', {pretty:true});
 var contact = pug.compileFile('./templates/contact.pug', {pretty:true});
 var contact_success = pug.compileFile('./templates/contact_success.pug', {pretty:true});
-const{check, validationResult} = require('express-validator/check');
 
 module.exports = function(req, res){
     var errors = validationResult(req);
