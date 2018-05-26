@@ -1,6 +1,7 @@
 //import necessary modules
 var passport = require('passport');
 var express = require('express');
+const{check, validationResult} = require('express-validator/check');
 //create Router object
 var router = express.Router();
 //import routes that handle requests
@@ -33,6 +34,17 @@ router.get('/contact', contact);
 
 //set up post routes
 router.post('/login', passport.authenticate('local',  { successRedirect: '/profile', failureRedirect: '/login'}), login_submit);
-router.post('/register', register_submit);
-router.post('/contact', contact_submit);
+//validate 
+router.post('/register',[
+
+], register_submit);
+router.post('/contact',[
+    check('name').not().isEmpty().withMessage('Das Feld "Name" darf nicht leer sein.')
+    ,
+    check('email').isEmail().withMessage('Geben sie eine E-Mail-Adresse an.')
+    ,
+    check('subject').not().isEmpty().withMessage('Geben sie einen Betreff an.')
+    ,
+    check('message').not().isEmpty().withMessage('Geben sie eine Nachricht ein.')
+], contact_submit);
 module.exports = router;

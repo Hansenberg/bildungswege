@@ -1,6 +1,11 @@
 .container
     article
         h1 Kontaktformular
+        -if(errors)
+            each val in errors
+                .alert.alert-danger(role='alert')
+                    span= val
+
         form(method="POST" action="contact")
             .form-group
                 label(for="name") Name
