@@ -1,4 +1,4 @@
-
+// Beispiel SQ
 SELECT * FROM person/ abschluss
 SELECT ID FROM person p, abschluss a WHERE benutzername.p = ´ ´
 SELECT praktika, max_Alter, min_Alter, Tests FROM abschluss WHERE ID =´ ´
@@ -7,25 +7,84 @@ SELECT a.ID FROM person p, abschluss a WHERE p.benutzername = benutzername AND m
 SELECT ID FROM abschluss WHERE praktika =´ ´
 SELECT a.ID FROM person p, abschluss a WHERE p.benutzername = benutzername AND p.qualifikationen =´ ´ AND p.zusatzqualifikationen=´ ´ AND a.praktika=´ ´
 
+SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Abendschule'
+SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Fachoberschule'
+SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Berufsschule'
+SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Berufsoberschule'
+SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Abendrealschule'
+SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Fachschule'
+SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Volkshochschule'
+
 //neue Daten
-UPDATE person SET qualifikationen= ' ' WHERE benutzername = ' '
+UPDATE person SET = ' ' WHERE benutzername = ' '
 UPDATE person SET zusatzqualifikationen WHERE benutzername = ' '
 UPDATE person SET alter = ' ' WHERE benutzername = ' '
 UPDATE person p, abschluss a SET p.zusatzqualifikationen= ' ', p.qualifikationen= ' ', a.praktika =' ' WHERE p.benutzername = ' '
 
 //ein Abschluss wird eingegeben, mehrere werden ausgegeben
 SELECT a.name FROM abschluss a, qualifikation q, haengt_ab_a, haengt_ab_q WHERE a.id = haengt_ab_a.id AND q.id = haengt_ab_q.id AND q.name = ' ' OR q.name = ' ' O
-SELECT a.name FROM abschluss a, 
+SELECT name FROM abschluss WHERE name = erreicht_durch AND name = ' '
+SELECT name FROM abschluss WHERE name IS LIKE '%meister"
 
 //Daten einfügen:
-INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "ohne Abschluss", 0,0, "Sie haben noch keinen schulischen Abschluss gemacht. Ohne Abschluss können Sie nur wenige Ausbildungen beginnen.")
-INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "Hauptschulabschluss", 0, 0, "Sie haben einen qualifizierenden Hauptschulabschluss gemacht. Hiermit stehen Ihnen eine große Anzahl an Ausbildungswegen zur Verfügung")
-INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "mittlere Reife",0,0, "Sie besitzen die mittlere Reife/ haben sinen Realschulabschluss gemacht. Damit können Sie fast alle Ausbildungen beginnen.")
-INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "Fachhochschulreife",0,0, "Sie haben die Fachhochschulreife gemacht. Damit können Sie an jeder Fachoberschule studieren.")
-INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "fachgebundene Hochschulreife", 0,0, "Sie haben eine fachgebundene Hochschulreife. Sie dürfen diejenigen Fächer an einer Universität studieren, für welche Sie den Abschluss besitzen2)
-INSERT INTO abschluss (id, name, min_alter, max_alter, beschreibung) VALUES (0, "Abitur", 0,0, "Sie haben das Abitur und somit den höchstmöglichen schulischen Abschluss. Damit stehen Ihnen im Prinzip alle Studiengänge und Ausbildungswege zur Verfügung.")
 
+//schulische Abschlüsse
+1 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "ohne Abschluss", 0,0, "Nichts",  "Du hast noch keinen schulischen Abschluss gemacht. Ohne Abschluss kannst du nur wenige Ausbildungen beginnen.")
+2 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Hauptschulabschluss", 0, 0, "Abendschule, Volkshochschule, andere Bildungsträger", "Du hast einen qualifizierenden Hauptschulabschluss gemacht. Hiermit stehen Ihnen eine große Anzahl an Ausbildungswegen zur Verfügung")
+3 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "mittlere Reife",0,0, "Abendrealschule, Berufsschule, Berufsfachschule", "Sie besitzen die mittlere Reife/ haben sinen Realschulabschluss gemacht. Damit kannst du fast alle Ausbildungen beginnen.")
+4 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Fachhochschulreife",0,0, "Abendgymnasium, Fachoberschule, Fachschule", "Du hast die Fachhochschulreife gemacht. Damit kannst du an jeder Fachoberschule studieren.")
+5 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "fachgebundene Hochschulreife", 0,0, "Berufsoberschule, Fachoberschule mit 13.Klasse und einer Fre", "Du hast eine fachgebundene Hochschulreife. Du darfst diejenigen Fächer an einer Universität studieren, für welche Sie den Abschluss besitzen2)
+6 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Abitur", 0,0, "Kolleg (Vollzeit) oder Abendgymnasium (Teilzeit), Berufliches Gymnasium / Fachgymnasium, Berufsoberschule (mit Nachweis der zweiten Fremdsprache), Fachoberschule Klasse 13 mit zweiter Fremdsprache", "Du hast das Abitur und somit den höchstmöglichen schulischen Abschluss. Damit stehen dir im Prinzip alle Studiengänge und Ausbildungswege zur Verfügung.")
+
+//Abhhängigkeiten der Schulabschlüsse
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (3,2)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (4,3)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (5,3)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (6,3)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (7,1)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (9,4)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (10,2)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (12,2)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (8,3)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (16,4)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (17,3)
+
+//einzelne Abschlüsse des zweiten Bildungsweges
+7 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Thermometermacher", 0,0,"ohne Abschlus", "Als Thermometermacher kannst du alles über den so wichtigen Stoff Glas erlernen. Außerdem wird dir das richtige Anfertigen und Auswerten von Skizzen beigebracht.",0)
+8 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Industriemeister_Glas, "18,63, "Thermometermacher", "Mit dem Industriemeister kannst du nicht nur mehr Geld verdienen, sondern darüber hinaus auch noch mehr über die Skalierung von Thermometern und die Eigenschaften von Glas lernen.")
+9 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Studium: Werkstofftechnik Keramik und Glas", 16, 63, "Thermometermacher", "Ein Studiengang, der naturwissenschaftliche, verfahrenstechnische und betriebswirtschaftliche Themen vereint. Neben Chemie und Mathe stehen aber auch Praxisphasen auf dem Plan. Um für das Studium zugelassen zu werden, brauchst du nicht unbedingt das (Fach-)Abitur und danach kannst du in die Forschung gehen")
+
+10 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Bäcker", "15", "63", "Hauptschulabschluss", "Eine Bäckerausbildung dauert drei Jahre. Dabei lernst du es, kreativ und im Team zu arbeiten. Allerdings darf es für dich auch kein Problem sein, früh aufzustehen und auch mal am Wochenende zu arbeiten." )
+11 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Bäckermeister", "18", "65", "Bäcker", "Mit einem Bäckermeister kannst du deinen eigenen Bäckereifachbetrieb eröffnen, da du nun das passende Know-how hast. Mit diesem bist du zudem berechtigt, auf der Hochschule zu studieren.")  
+
+12 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Metallbauer", 0, 0, "Hauptschulabschluss", "Die Ausbildung zum Metallbauer dauert 3,5 Jahre, doch dabei lernst du alle nötigen Handgriffe, um das Metall bearbeiten zu können. Darüber hinaus kannst du dich noch in drei große Richtungen weiterbilden lassen.")
+13 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Techniker", 0, 0, "Metallbauer", "Mit einem Techniker-Abschluss kannst du nicht nur mehr Geld verdienen, sondern auch noch tiefer in die Materie eintauchen")
+
+14 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Fahrzeuglackierer", 0,0, "Hauptschulabschluss", "Als Fahrzeuglackierer verbringst du die meiste Zeit in Werkstätten oder in Büros, wenn der Kunde individuelle Wünsche hat. Du lernst darüber hinaus aber auch, wie man die Fahrzeugoberfläche behandeln muss und andere Feinheiten.")
+15 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Betriebswirt Farbtechnik", 0,0, "Fahrzeuglackierer", "Mit dieser Weiterbildung kannst du noch mehr Aufgaben im Betrieb übernehmen, die zuvor nur deine Vorgesetzten machen durften.")
+16 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Studium: Chemieingeneurwesen und Verfahrenstechnik", "16",0, "Fachhochschulreife", "Mit dem Studium erhälst du einen Einblick in spannende Bereiche der Chemieindustrie und lernst alles für einen wechselreichen und interessanten Beruf")
+
+17 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Zahntechniker", 0,0, "Realschulabschluss", "Als Zahntechniker lernst du es, Zahnprotesen sowie Zahnspangen herzustellen. Arbeiten würdest du dann in einem zahntechnischen Labor, in einer Zahnartzpraxis oder einer Zahnkklinik.")
+//Qualifikationen (Zusatzqualifikationen)
+1 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({berufserfahrung: "4 Jahre"}, "Für viele Meisterlehrgänge wird eine Berufserfahrung in dem jeweiligen Gebiet von 4 Jahren vorgeschrieben.")
+2 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({berufserfahrung: "3 Jahre"}, {Kenntnisse: "Mathematik", "Chemie", "Physik"}, "Diese Voraussetzungen hat ein Studium Werkstoff Keramik und Glas")
+3 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({fähigkeit: "teamwork", fähigkeit: "kreativität"}, "Diese Voraussetzungen hat eine Ausbildung zum Bäcker/ zu Bäckerin")
+4 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({prüfung: "meisterprüfung"}, "Um Bäckermeister zu werden, musst du die vier Bestandteile der Meisterprüfung(praktisch, fachtheoretisch, wirtschaftlich und rechtlich, berufs- und arbeitspädagisch.")
+5 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({weiterbildung: "2 Jahre (Vollzeit)", weiterbildung: "3.-4 Jahre(Teilzeit)"}, "Voraussetzungen für eine Technikerweiterbildung im Metallbauerbereich, wo du noch tiefer in die Materie eintauchen und mehr Geld verdienen kannst.")
+6 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({fähigkeit: "feingefühl"} {fähigkeit: "stil"} {fähigkeit: "kreativität"}, "Als Fahrzeuglackierer solltest du dich für Autos interessieren und gut mit diesen umgehen können. Darüber hinaus solltest du ein gutes Bewusstsein für Stil und etwas Kreativität besitzen." )
+7 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({berufserfahrung: "1 Jahr"},{weiterbildung: "seminare"}, "Voraussetzung für die Weiterbildung zum Betriebswirt, in diesem Fall im Bereich Farbtechnik")
+8 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({prüfung: "meisterprüfung"}, "Das Studium kannst du mit einem (Fach-)Abitur sowie einer erfolgreichen Meisterprüfung beginnen.")
+9 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({fähigkeit: "feingefühl"}, "Um diese Ausbildung machen zu können, bräuchtest du neben einem Realschulabschluss auch einen hohen Grad an Feingefühl") 
+
+//Abhängigkeiten der Qualifikationen 
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (8,1)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (9,2)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (10,3)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (11,4)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (13,5)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (14,6)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (15,7)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (16,8)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (17,8)
+
+// wie fügt man ein, dass abitur über allem steht

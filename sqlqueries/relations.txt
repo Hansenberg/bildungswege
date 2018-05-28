@@ -1,5 +1,5 @@
 person(benutzername, passwort, vorname, name, email, geburtsdatum, kontotyp)
-abschluss(id, name, min_alter, max_alter, beschreibung)
+abschluss(id, name, min_alter, max_alter, beschreibung, erreicht_durch )
 qualifikation(id, name, beschreibung)
 haengt_ab_a(id, haengt_ab)
 haengt_ab_q(id, haengt_ab)
