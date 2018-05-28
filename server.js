@@ -9,6 +9,7 @@ var sql_connect = require('./custom_modules/sql_connect');
 var user = require('./models/user');
 var mysql = require('mysql');
 var bcrypt = require('bcrypt');
+var flash = require('express-flash');
 sqlcon = new sql_connect();
 
 app.use(express.urlencoded({
@@ -42,6 +43,14 @@ app.use(session(sessionOptions))
 app.use(express.static('static'))
 app.use(express.static('static/html'))
 
+//use flash messages module
+app.use(flash());
+app.use(function(req, res, next){
+    // if there's a flash message in the session request, make it available in the response, then delete it
+    res.locals.sessionFlash = req.session.sessionFlash;
+    delete req.session.sessionFlash;
+    next();
+});
 
 //setting up passport and local strategy for authentication of users
 //TODO: more intricate checking of user

@@ -5,11 +5,11 @@ module.exports = function(req, res){
     var contact = pug.compileFile('./templates/contact.pug', {pretty:true});
     if (req.user) {
         res.send(main_auth({
-            content: contact()
+            content: contact({errors: null})
         }))
     } else {
         res.send(main({
-            content: contact()
+            content: contact({errors: null})
         }));
     }
     
