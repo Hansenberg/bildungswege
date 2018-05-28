@@ -42,12 +42,20 @@ INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (4,3)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (5,3)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (6,3)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (7,1)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (7,8)
 INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (9,4)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (10,2)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (10,11)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (12,2)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (12,13)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (8,3)
 INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (16,4)
-INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (17,3)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (17,3)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (18,6)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (19,3)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (20,4)
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (20,19)
+
 
 //einzelne Abschlüsse des zweiten Bildungsweges
 7 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Thermometermacher", 0,0,"ohne Abschlus", "Als Thermometermacher kannst du alles über den so wichtigen Stoff Glas erlernen. Außerdem wird dir das richtige Anfertigen und Auswerten von Skizzen beigebracht.",0)
@@ -64,7 +72,12 @@ INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (17,3)
 15 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Betriebswirt Farbtechnik", 0,0, "Fahrzeuglackierer", "Mit dieser Weiterbildung kannst du noch mehr Aufgaben im Betrieb übernehmen, die zuvor nur deine Vorgesetzten machen durften.")
 16 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Studium: Chemieingeneurwesen und Verfahrenstechnik", "16",0, "Fachhochschulreife", "Mit dem Studium erhälst du einen Einblick in spannende Bereiche der Chemieindustrie und lernst alles für einen wechselreichen und interessanten Beruf")
 
-17 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Zahntechniker", 0,0, "Realschulabschluss", "Als Zahntechniker lernst du es, Zahnprotesen sowie Zahnspangen herzustellen. Arbeiten würdest du dann in einem zahntechnischen Labor, in einer Zahnartzpraxis oder einer Zahnkklinik.")
+17 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Zahntechniker", 0,"63", "Realschulabschluss", "Als Zahntechniker lernst du es, Zahnprotesen sowie Zahnspangen herzustellen. Arbeiten würdest du dann in einem zahntechnischen Labor, in einer Zahnartzpraxis oder einer Zahnkklinik.")
+18 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Studium: Zahnmedizin, "16", "63", "Abitur", "Mit einem Studium in der Zahnmedizin kannst du deine eigene Praxis eröffnen und selbstständig als Zahnarzt oder Zahnärztin arbeiten." )
+
+19 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Raumausstatter", 0, "63", "Realschulabschluss", "Als Raumausstatter stehen dir viele Türen offen. Du hast einen hohen Grad an Selbstständikeit, deine Kunden verlassen sich jedoch auch auf ein gutes Ergebnis.")
+20 INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Studium: Innenarchitektur", "16", "63", "Raumausstatter", "Mit diesem Studium kannst du in viele Richtungen gehen. Du kannst dich auch auf deine Fähigkeiten als Raumausstatter verlassen und die Innenräume von Privatwohnungen bis hin zu großen Firmen gestalten.")
+
 //Qualifikationen (Zusatzqualifikationen)
 1 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({berufserfahrung: "4 Jahre"}, "Für viele Meisterlehrgänge wird eine Berufserfahrung in dem jeweiligen Gebiet von 4 Jahren vorgeschrieben.")
 2 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({berufserfahrung: "3 Jahre"}, {Kenntnisse: "Mathematik", "Chemie", "Physik"}, "Diese Voraussetzungen hat ein Studium Werkstoff Keramik und Glas")
@@ -75,6 +88,9 @@ INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (17,3)
 7 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({berufserfahrung: "1 Jahr"},{weiterbildung: "seminare"}, "Voraussetzung für die Weiterbildung zum Betriebswirt, in diesem Fall im Bereich Farbtechnik")
 8 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({prüfung: "meisterprüfung"}, "Das Studium kannst du mit einem (Fach-)Abitur sowie einer erfolgreichen Meisterprüfung beginnen.")
 9 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({fähigkeit: "feingefühl"}, "Um diese Ausbildung machen zu können, bräuchtest du neben einem Realschulabschluss auch einen hohen Grad an Feingefühl") 
+9 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({nc: "2.0 oder niedriger"}{prüfung: "meisterprüfung"}, "Um Zahnmedizin studieren zu können, brauchst du an den meisten deutschen Hochschulen einen Numerus Clausus von 2.0 oder niedriger. Allerdings kann dir praktische Erfahrung sowie ein Meistertitel sehr stark weiterhelfen.")
+10 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ({fähigkeit: kreativität"}, "Als Raumausstatter solltest du kreativ sein und ein hohes Bewusstsein für Stil haben und gestalterisches Talent besitzen.")
+11 INSERT INTO qualifikationen (id, name, beschreibung) VALUES ("Fachhochschulreife", "Um mit diesem Studium beginnen zu können benötigst du nicht nur etwas praktische Erfahrung, sondern eben auch einen Abschluss an einer Berufsoberschule für dieses Gebiet")
 
 //Abhängigkeiten der Qualifikationen 
 INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (8,1)
@@ -86,5 +102,9 @@ INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (14,6)
 INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (15,7)
 INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (16,8)
 INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (17,8)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (18,9)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (19,10)
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (20,11)
+
 
 // wie fügt man ein, dass abitur über allem steht
