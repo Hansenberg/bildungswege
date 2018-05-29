@@ -31,6 +31,7 @@ var sessionOptions = {
     secret: 'verySecureSecret1337',
     resave: false,
     saveUninitialized: false,
+    store: sessionStore,
     cookie :{
         httpOnly: false,
         secure:false,
@@ -38,22 +39,36 @@ var sessionOptions = {
         sameSite: true
     }
 }
-app.use(session(sessionOptions))
+app.use(session(sessionOptions));
 //setting up static routes
-app.use(express.static('static'))
-app.use(express.static('static/html'))
-
-//use flash messages module
-app.use(flash());
-app.use(function(req, res, next){
-    // if there's a flash message in the session request, make it available in the response, then delete it
-    res.locals.sessionFlash = req.session.sessionFlash;
-    delete req.session.sessionFlash;
-    next();
-});
+app.use(express.static('static'));
 
 //setting up passport and local strategy for authentication of users
 //TODO: more intricate checking of user
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(function(user, done) {
+    console.log(user.username)
+    done(null, user.username);
+});
+
+passport.deserializeUser(function(username, done) {
+var user_db;
+sqlcon.connection.query('SELECT * FROM person WHERE benutzername ="'+username + '"', function(err, res, fields){
+        if(err){ 
+            console.log(err); 
+            return done(err, null);
+        }
+        else{
+            deserialize(res, err);
+        }
+});
+var deserialize = function(sqlResult, err){
+    done(err, new user(sqlResult[0].benutzername, sqlResult[0].passwort, sqlResult[0].email, sqlResult[0].vorname, sqlResult[0].name, sqlResult[0].geburtsdatum, sqlResult[0].kontotyp));
+}
+
+});
+
 passport.use(new LocalStrategy(function(username, password, done){
     sqlcon.connection.query('SELECT passwort FROM person WHERE benutzername = "'+ username + '"', function(err, res, fields){
         if(err){
@@ -83,28 +98,17 @@ passport.use(new LocalStrategy(function(username, password, done){
     }
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-passport.serializeUser(function(user, done) {
-    done(null, user.username);
+
+
+//use flash messages module
+app.use(flash());
+app.use(function(req, res, next){
+    // if there's a flash message in the session request, make it available in the response, then delete it
+    res.locals.sessionFlash = req.session.sessionFlash;
+    delete req.session.sessionFlash;
+    next();
 });
 
-passport.deserializeUser(function(username, done) {
-var user_db;
-sqlcon.connection.query('SELECT * FROM person WHERE benutzername ="'+username + '"', function(err, res, fields){
-        if(err){ 
-            console.log(err); 
-            return done(err, null);
-        }
-        else{
-            deserialize(res, err);
-        }
-});
-var deserialize = function(sqlResult, err){
-    done(err, new user(sqlResult[0].benutzername, sqlResult[0].passwort, sqlResult[0].email, sqlResult[0].vorname, sqlResult[0].name, sqlResult[0].geburtsdatum, sqlResult[0].kontotyp));
-}
-
-});
 /* Junkyard 
 bcrypt.hash('admin', 10, function(err, hash) {
    console.log(hash);
@@ -113,5 +117,6 @@ bcrypt.compare('admin', '$2b$10$ijqf5AuZpQ2UaCQFdcweD.UkHgDDP2QTWkFibSTFPCageoeD
     console.log(res);
 });
 */
+
 app.use(router);
 app.listen(60001);
