@@ -15,13 +15,14 @@ id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(200) NOT NULL,
 min_alter INT DEFAULT 0,
 max_alter INT DEFAULT 0,
-beschreibung VARCHAR(255),
+erreicht_durch VARCHAR(200)
+beschreibung VARCHAR(2000),
 PRIMARY KEY(id)
 );
 CREATE TABLE qualifikation(
 id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(200) NOT NULL,
-beschreibung VARCHAR(255),
+beschreibung VARCHAR(2000),
 PRIMARY KEY(id)
 );
 CREATE TABLE haengt_ab_a(

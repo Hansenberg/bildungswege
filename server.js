@@ -48,7 +48,6 @@ app.use(express.static('static'));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(function(user, done) {
-    console.log(user.username)
     done(null, user.username);
 });
 
