@@ -1,0 +1,11 @@
+
+//neue Daten
+UPDATE person SET = ' ' WHERE benutzername = ' '
+UPDATE person SET zusatzqualifikationen WHERE benutzername = ' '
+UPDATE person SET alter = ' ' WHERE benutzername = ' '
+UPDATE person p, abschluss a SET p.zusatzqualifikationen= ' ', p.qualifikationen= ' ', a.praktika =' ' WHERE p.benutzername = ' '
+
+//ein Abschluss wird eingegeben, mehrere werden ausgegeben
+SELECT a.name FROM abschluss a, qualifikation q, haengt_ab_a, haengt_ab_q WHERE a.id = haengt_ab_a.id AND q.id = haengt_ab_q.id AND q.name = ' ' OR q.name = ' ' O
+SELECT name FROM abschluss WHERE name = erreicht_durch AND name = ' '
+SELECT name FROM abschluss WHERE name IS LIKE '%meister"
