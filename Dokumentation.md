@@ -1,10 +1,5 @@
 # Dokumentation Bildungswege
-## Ziel des Projekts/ Grundidee
-lorem ipsum...
 
-## Struktur und Aufbau der Datenbank
-Da bei unserem Projekt die Datenbank von zentraler Bedeutung ist, musste sie so geplant werden, dass sie die Aufgabe, bestimmte Ausbildungswege aufzuzeigen, erfüllen kann und die nötigen Daten der Benutzer einspeichern kann, die für die Nutzung des Dienstes erforderlich sind.
-Für # Dokumentation Bildungswege
 ## Ziel des Projekts/ Grundidee
 lorem ipsum...
 
