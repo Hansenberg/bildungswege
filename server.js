@@ -7,7 +7,7 @@ var passport = require('passport'),
 var MySQLStore = require('express-mysql-session')(session);
 var sql_connect = require('./custom_modules/sql_connect');
 var user = require('./models/user');
-var mysql = require('mysql');
+//var mysql = require('mysql');
 var bcrypt = require('bcrypt');
 var flash = require('express-flash');
 sqlcon = new sql_connect();
@@ -47,10 +47,11 @@ app.use(express.static('static'));
 //TODO: more intricate checking of user
 app.use(passport.initialize());
 app.use(passport.session());
+//serializing user into session with user.id
 passport.serializeUser(function(user, done) {
     done(null, user.username);
 });
-
+//deserializing user from the session by running sql query that takes data from user with user id stored in the session
 passport.deserializeUser(function(username, done) {
 var user_db;
 sqlcon.connection.query('SELECT * FROM person WHERE benutzername ="'+username + '"', function(err, res, fields){
