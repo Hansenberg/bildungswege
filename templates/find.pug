@@ -1,0 +1,14 @@
+.container
+    - if(results){
+        h1 Wählen sie ein Berufsziel aus
+        form(action="/find" method="post")
+            select(name="goal" class="form-control")
+                - var currentId, currentName; console.log(results)
+                - for(i = 0; i < results.length; i++){ currentId = results[i].id; currentName = results[i].name;
+                    option(value= currentId)= currentName
+                -} 
+            br
+            button.btn.btn-default(type="submit") finden!
+    - }else{
+        h1 Keine Ausbildungsberufe in der Datenbank gefunden.
+    - }

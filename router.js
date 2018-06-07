@@ -21,6 +21,7 @@ var profile = require('./routes/profile');
 var settings = require('./routes/settings');
 var contact = require('./routes/contact');
 var contact_submit = require('./routes/contact_submit');
+var find_submit = require('./routes/find_submit.js');
 //set up get routes
 router.get('/', index);
 router.get('/login', login);
@@ -81,4 +82,5 @@ router.post('/contact',[
     ,
     check('message').not().isEmpty().withMessage('Geben sie eine Nachricht ein.')
 ], contact_submit);
+router.post('/find', find_submit)
 module.exports = router;
