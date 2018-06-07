@@ -1,8 +1,9 @@
 # Dokumentation Bildungswege
 
 ## Ziel des Projekts/ Grundidee
-lorem ipsum...
-
+Auf der Seite bildungswege.ml wollen wir Menschen, die gerne beruflich ihren Horizont erweitern wollen, eine Möglichkeit geben mit ihren Qualifikationen neue Bildungswege und Berufsfelder zu entdecken. Ein solches Verfahren wird bis jetzt noch auf keiner anderen Seite angeboten und wir sehen hier ganz klar die Möglichkeit, mit dieser neuen Idee die Lösung für ein bestehendes, reales Problem zu liefern. 
+Die Nutzer melden sich auf unserer Seite an und geben ihren Wunsch an. Das kann dann z.B. das Nachholen des Realschulabschlusses, eine Ausbildung als Zahntechniker oder sogar ein Studium in der Zahnmedizin und noch vieles mehr sein. Daraufhin wird dem Benutzer ein interaktiver Weg ausgegeben, wie er denn dieses Ziel erreichen kann und was er alles dafür machen muss. 
+Ein solches Verfahren erleichtert die Suche in großem Ausmaß, indem wir viele Informationen auf einer Seite zusammenfassen und sich der Nutzer so nicht mehr durch etliche Seiten, die Informationen über den zweiten Bildungsweg angeben, durchklicken muss. Wir übernehmen die Suche für ihn und liefern ihm schneller als alle anderen Seiten die wichtigsten Informationen zu seinem Weg. 
 ## Struktur und Aufbau der Datenbank
 Da bei unserem Projekt die Datenbank von zentraler Bedeutung ist, musste sie so geplant werden, dass sie die Aufgabe, bestimmte Ausbildungswege aufzuzeigen, erfüllen kann und die nötigen Daten der Benutzer einspeichern kann, die für die Nutzung des Dienstes erforderlich sind.
 
