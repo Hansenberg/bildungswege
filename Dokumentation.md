@@ -11,7 +11,11 @@ Unsere Datenbank hat 3 zentrale Identitäten: `person`,`abschluss` und `qualifik
 
 ![ER-Diagramm](./docs/erd.png "ER-Diagramm der Datenbank bildungswege")
 
-
+In der Entität `person` werden, wie im Diagramm zu sehen, benutzerbezogene Daten gespeichert. Dabei ist der Primärschlüssel der Benutzername, dieser muss folglich für jeden Nutzer einzigartig sein.
+Die Entität `abschluss` enthält alle möglichen Abschlüsse, der Primärschlüssel ist eine ID, die bei 1 anfängt und automatisch inkrementiert wird.
+Eine weitere Entität `qualifikationen` wird benötigt, um bestimmte für einen Studiengang oder eine Ausbildung nötige Qualifikationen einzuspeichern, welche keinen Abschluss, Studiengang oder Ausbildung etc. darstellen.
+Eine Person kann Qualifikationen und Abschlüsse besitzen. Dies wird in unserer Datenbank durch die Tabellen `hat_a` (_hat Abschluss_) und `hat_q` (_hat Qualifikation_) dargestellt. Beide Verbindungen bestehen aus zwei Fremdschlüsseln, die gemeinsam den Primärschlüssel bilden. Der erste Fremdschlüssel ist der `benutzername`, der zweite die `id` des Abschlusses oder der Qualifikation, den die Person besitzt.
+Viele Abschlüsse können nur gemacht werden, wenn die Person zuvor einen anderen Abschluss oder eine bestimmte Qualifikation erworben hat. Diese Verbindung wird durch die zwei Tabellen `haengt_ab_a` und `haengt_ab_q` dargestellt. Beide Tabellen setzen sich aus zwei Fremdschlüsseln zusammen, die gemeinsam den Primärschlüssel bilden. Dies ist zum einen die `id` eines Abschlusses, zum anderen die id des Abschlusses, von der der Abschluss abhängt, welche in unserer Tabelle als `haengt_ab` benannt ist.
 ## Programmcode und Umsetzung
 Wir haben uns dafür entschieden, das Projekt in Node.js umzusetzen, da wir eine Umgebung gesucht haben, wo komplexe Features wie Sessions, Cookies, Authorisierung etc. wegen der vielen über den Node Package Manager verfügbaren Pakete einfach und gleichzeitig in voller Funktionalität umzusetzen sind. Als Framework für das Verarbeiten von HTTP-Anfragen benutzen wir Express.js. 
 ### server.js
