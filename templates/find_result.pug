@@ -1,0 +1,18 @@
+table.table
+	thead
+		tr
+			th(scope='col') Name
+			th(scope='col') Minimales Alter
+			th(scope='col') Maximales Alter
+			th(scope='col') Beschreibung
+			th(scope='col') Erreicht durch
+	tbody
+		- var iterator = 1; for(i = results.length-1; i >= 0; i--){ 
+			tr
+				th(scope='row')= iterator
+				td= results[i].name
+				td= results[i].min_alter
+				td= results[i].max_alter
+				td= results[i].beschreibung
+				td= results[i].erreicht_durch
+		-iterator++;}
