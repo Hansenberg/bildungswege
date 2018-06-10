@@ -1,23 +1,59 @@
+.navbar.navbar-expand-lg.navbar-light.fixed-top a{
+    background-color: #4dacc9;
+    color: #fdfdfd;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
 #navbar{
-    background-color: #f9b57a
+    background-color: #4dacc9;
+    color: #fdfdfd;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 body{
+    background-color: #b9e8fa;
     padding-top: 65px;
+    margin-bottom: 50px;
 }
 #jumbotron1{
-background-image: url("jumbotron-background.jpg");
-background-repeat: initial;
+    
 }
 #jumbotron-btn{
-  background-color:#000000;
   color: #ffffff;
+  background-color: #4dacc9;
 }
 #jumbotron-div{
+    color: #000000;
+}
+h1{
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    -ms-hyphens:auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+position: absolute;
+bottom: 0;
+width: 95%;
+height:35px;
+}
+.navbar.navbar-expand-lg.navbar-light.fixed-top a.nav-button{
+    background-color: #127d9e;
+}
+.btn.btn-default{
     color: #ffffff;
+  background-color: #4dacc9;
 }
-#navbar{
-    background-color: #ffffff;
+.table.table-sm{
+    color: #ffffff;
+  background-color: #4dacc9;
 }
-#footerdiv{
-    background-color: #ffffff;
+.weg{
+    font-size: 40px;
+    color: #144e5f
 }

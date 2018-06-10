@@ -15,7 +15,7 @@ id INT NOT NULL AUTO_INCREMENT,
 name VARCHAR(200) NOT NULL,
 min_alter INT DEFAULT 0,
 max_alter INT DEFAULT 0,
-erreicht_durch VARCHAR(200)
+erreicht_durch VARCHAR(200),
 beschreibung VARCHAR(2000),
 PRIMARY KEY(id)
 );

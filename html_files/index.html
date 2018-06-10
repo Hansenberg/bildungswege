@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="utf-8">
@@ -6,65 +6,32 @@
     <meta name="description" content="Bildungswege">
     <meta name="author" content="Alexander von Recum, Anton Peter, Nikolaus Stern">
     <link rel="icon" href="favicon.ico">
-
     <title>Bildungswege</title>
-
     <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
   </head>
-
-  <body>
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar">
-      <a class="navbar-brand" href="index.html">Bildungswege</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="find.html">Finde deinen Weg!</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="about.html">Über uns</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <article class="container-fluid" id="jumbotron-div">
-      <div class="jumbotron img-fluid" id="jumbotron1">
-        <h1>Finde deinen Bildungsweg und entdecke Neues</h1>
-        <p>Du willst dein Abitur nachholen?<br> 
-          Vielleicht irgendwann mal deinen Meister in deinem Ausbildungsweg machen? <br>
-          Dein aktueller Berufsweg ist langweilig geworden und du willst dich mal in eine neue Richtung orientieren? <br>
-        </p>
-          <p>Antworten auf deine Fragen und noch vieles mehr findest du auf unserer Seite. <br>
-            
-          Wir wollen dir helfen, neue Wege und neue Möglichkeiten zu entdecken und deine Stärken, Fähigkeiten und Können <br> 
-          perfekt in deiner neuen Stelle perfekt ausnutzen zu können. <br>
-          Mit uns hast du die Möglichkeit ganz einfach und simpel herauszufinden, indem du dich heute noch auf bildungswege.ml anmeldest, <br>
-          was dir mit deinen Ausbildungen und Abschlüssen im Berufsleben für Türen offenstehen. <br>
-          Nutze deinen Lebenslauf maximal aus und entdecke Neues!<br>
-          Registriere dich dafür noch heute! <br>
-      
-          </p>
-        <a class="btn btn-default my-2" href="register.html" id="jumbotron-btn">Registrieren</a>
-        <br>
-        <a class="btn btn-default my-2" href="login.html" id="jumbotron-btn">Anmelden</a>
-      </div>
-      </div>
-    </article> 
-
+  <body class="container-fluid">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar"><a class="navbar-brand" href="/">Bildungswege</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="find">Finde deinen Weg!</a></li>
+            <li class="nav-item active"><a class="nav-link" href="about">Über uns</a></li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
+              <li class="nav-item active"><a class="btn btn-default nav-button mt-1 mt-lg-0 mb-2 mb-lg-0" href="register">Registrieren</a></li>
+              <li class="nav-item active"><a class="btn btn-default nav-button ml-lg-1" href="login">Anmelden</a></li>
+            </ul>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div><article class="container-fluid" id="jumbotron-div"><div class="jumbotron" id="jumbotron1" style="background-color: #ffffff"><h1>Finde deinen Bildungsweg</h1><p>Unsere Seite ermöglicht es dir, schnell und einfach deinen individuellen Ausbildungsweg zu finden. Melde dich noch heute an!</p><a class="btn btn-default my-2" id="jumbotron-btn" href="register">Registrieren</a><br/><a class="btn btn-default my-2" id="jumbotron-btn" href="login">Anmelden</a></div></article></div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
-
-    <footer class="footer">
-        <div class="container">
-          <span class="text-muted"><a class="text-muted" href="impressum.html">Impressum</a> <a class="text-muted ml-1" href="datenschutz.html">Datenschutzerklärung</a></span>
-        </div>
-    </footer>
+    <footer class="footer text-center"><span class="text-muted text-center my-auto"><a class="text-muted" href="impressum">Impressum</a><a class="text-muted ml-2" href="datenschutz">Datenschutzerklärung</a><a class="text-muted ml-2" href="contact">Kontakt</a></span></footer>
   </body>
 </html>
