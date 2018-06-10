@@ -41,12 +41,14 @@ router.post('/login', passport.authenticate('local',  { successRedirect: '/profi
 router.post('/register',[
     check('username').isLength({min: 5, max: 50}).withMessage('Benutzername muss mindestens 5 und maximal 50 Zeichen lang sein')
     ,
+    /*
     check('username').custom((value, { req }) => {
         new Promise(doesUserExist(resolve, reject)).then(() => {
               return value;
       })
   })
     ,
+    */
     check('email').isEmail().trim().normalizeEmail({all_lowercase: true}).withMessage('Geben sie eine gültige E-Mail-Adresse an.')
     ,
     check('password').isLength({min: 8, max: 50}).withMessage('Passwort muss mindestens 8 Zeichen lang sein.')
