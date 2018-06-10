@@ -1,0 +1,23 @@
+INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Cembalobauer",0,0, "Fachhochschulreife", "Wenn du den Umgang mit Instrumenten, besonders dem Klavier, magst,ist das die richtige Stelle für dich! Du hast Projekte und lernst die hohe Kunst des Klavierbauens.")INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Klavierbauermeister", 0,0, "Cembalobauer", "Das Ziel der meisten Gesellen ist beruflicher Aufstieg. Die nächste Sprosse auf der Karriereleiter ist dabei die Weiterbildung zum Meister. Als solcher übernimmst du Fach- und Führungsaufgaben beim Bau, bei der Reparatur sowie bei der Restaurierung von Klavieren, Flügeln, Cembali und anderen Tasteninstrumenten. ");
+INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Klavierbauermeister", 0,0, "Cembalobauer", "Das Ziel der meisten Gesellen ist beruflicher Aufstieg. Die nächste Sprosse auf der Karriereleiter ist dabei die Weiterbildung zum Meister. Als solcher übernimmst du Fach- und Führungsaufgaben beim Bau, bei der Reparatur sowie bei der Restaurierung von Klavieren, Flügeln, Cembali und anderen Tasteninstrumenten. ");
+INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Augenoptiker",0,0, "Realschulabschluss", "Bei der Ausbildung zum Augenoptiker lernst du es, den Kunden zu beraten und zu informieren, Brillen zu schleifen und so mit Materialien wie Titan, Glas und Aluminium umzugehen sowie die Daten von den Kunden aufzunehmen.");
+INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Augenoptikermeister", 0,0, "Augenoptiker", "Als Meister in diesem Fachgebiet kannst du deinen eigenen Betrieb eröffnen. So handelst du mit Zulieferern, rechnest Angebote aus und kümmerst dich um dein Personal.");
+INSERT INTO abschluss (id, name, min_alter, max_alter, erreicht_durch, beschreibung) VALUES (0, "Studium: Optometrie",0,0, "Augenoptikmeister", "Dieses Fach macht dich in drei Jahren zum Experten für Farb- und Nachtblindheit und aller Arten von Sehkorrekturen. Nach dem Studium hast du auch die Möglichkeit in Forschung oder Entwicklung zu gehen.");
+
+INSERT INTO qualifikationen (id, name, beschreibung) VALUES ('{"fähigkeit": ["feingefühl", "geduld"]}',  "Um ein guter Cembalobauer zu werden, solltest du dich nicht so leicht aus der Rolle bringen lassen und besonders ein großes Feingefühl besitzen.");
+INSERT INTO qualifikationen (id, name, beschreibung) VALUES ('{"prüfung": "meisterprüfung", "weiterbildung": "seminare"}', "Wenn du dich für den Meister als Cembalobauer interessierst, musst du bedenken, dass du so nochmal 2 Jahre die Schulbank drücken musst, dann aber mehr Geld verdienen und einen eigenen Betrieb gründen kannst.");
+INSERT INTO qualifikationen (id, name, beschreibung) VALUES ('{"fähigkeit": "freundlich"}', "Da du als Augenoptiker sehr häufig in Kontakt mit dem Kunden kommst, solltest du gut im Umgang mit den verschiedensten Menschen sein.");
+INSERT INTO qualifikationen (id, name, beschreibung) VALUES ('{"prüfung": "meisterprüfung"}, "Wenn du deinen Meister als Augenoptiker oder ein Studium der Optomerie machen willst, musst du die Meisterprüfung bestehen und die entsprechenden Seminare besuchen.");
+
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (21,12);
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (22,13);
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (23,14);
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (24,15);
+INSERT INTO haengt_ab_q (id, haengt_ab) VALUES (25,15);
+
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (21,4);
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (22,21);
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (23,2);
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (24,23);
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (25,24);
+INSERT INTO haengt_ab_a (id, haengt_ab) VALUES (25,4);
