@@ -13,3 +13,7 @@ SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Berufsoberschule'
 SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Abendrealschule'
 SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Fachschule'
 SELECT name FROM abschluss WHERE erreicht_durch CONTAINS 'Volkshochschule'
+
+SELECT * from abschluss;
+
+SELECT haengt_ab FROM haengt_ab_a where id = 
