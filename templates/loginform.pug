@@ -1,10 +1,11 @@
-.container.my-3.mx-auto
-    h1 Anmelden
-    form(method="POST" action="login")
-        .form-group
-            label(for="username") Benutzername
-            input#username.form-control(type="text" aria-describedby="emailHelp" placeholder="Benutzernamen eingeben" name="username")
-        .form-group
-            label(for="password") Passwort
-            input#password.form-control(name="password" type="password" placeholder="Passwort eingeben")
-        button.btn.btn-default(type="submit") einloggen
+article#jumbotron-div.container-fluid.my-3.mx-auto
+    #jumbotron1.jumbotron(style='background-color: #ffffff')
+        h1 Anmelden
+        form(method="POST" action="login")
+            .form-group
+                label(for="username") Benutzername
+                input#username.form-control(type="text" aria-describedby="emailHelp" placeholder="Benutzernamen eingeben" name="username")
+            .form-group
+                label(for="password") Passwort
+                input#password.form-control(name="password" type="password" placeholder="Passwort eingeben")
+            button.btn.btn-default(type="submit") einloggen

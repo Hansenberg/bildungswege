@@ -1,38 +1,39 @@
-.container
-    h1 Registrieren
-    -if(errors)
-        -if(errors.length>0)    
-            each val in errors
-                .alert.alert-danger(role='alert')
-                    span= val
-    form#register(method="POST" action="register")
-        .form-group
-            label(for="username") Benutzername
-            input#username.form-control(type="text" aria-describedby="usernameHelp" placeholder="Benutzername" name="username")
-            small#usernameHelp.form-text.text-muted Geben sie hier ihren gewünschten Benutzernamen ein.
-        .form-group
-            label(for="email") E-Mail-Adresse
-            input#email.form-control(type="email" aria-describedby="emailHelp" placeholder="E-Mail eingeben" name="email")
-            small#emailHelp.form-text.text-muted Ihre E-Mail wird nicht an dritte weitergegeben.
-        .form-group
-            label(for="password") Passwort
-            input#password.form-control(type="password" aria-describedby="passwordHelp" placeholder="Passwort" name="password")
-            small#passwordHelp.form-text.text-muted Passwörter müssen mindestens 8 Zeichen lang sein.
-        .form-group
-            label(for="passwordCompare") Passwort bestätigen
-            input#passwordCompare.form-control(type="password" aria-describedby="passwordCompareHelp" placeholder="Passwort erneut eingeben" name="passwordCompare")
-            small#passwordCompareHelp.form-text.text-muted Bestätigen sie hier ihr Passwort.
-        .form-group
-            label(for="first_name") Vorname
-            input#first_name.form-control(type="text" aria-describedby="first_nameHelp" placeholder="Vornamen eingeben" name="first_name")
-            small#first_nameHelp.form-text.text-muted Dieses Feld darf nicht leer sein.
-        .form-group
-            label(for="last_name") Nachname
-            input#last_name.form-control(type="text" aria-describedby="last_nameHelp" placeholder="Nachnamen eingeben" name="last_name")
-            small#last_nameHelp.form-text.text-muted Dieses Feld darf nicht leer sein.
-        .form-group
-            label(for="birth_date") Geburtsdatum
-            input#birth_date.form-control(type="date" aria-describedby="birth_dateHelp" placeholder="JJJJ-MM-TT" name="birth_date")
-            small#birth_dateHelp.form-text.text-muted Geben sie ihr Geburtsdatum im Format JJJJ-MM-TT an.
-        .form-group
-            button.btn.btn-default(type="submit") Registrieren
+article#jumbotron-div.container-fluid
+    #jumbotron1.jumbotron(style='background-color: #ffffff')
+        h1 Registrieren
+        -if(errors)
+            -if(errors.length>0)    
+                each val in errors
+                    .alert.alert-danger(role='alert')
+                        span= val
+        form#register(method="POST" action="register")
+            .form-group
+                label(for="username") Benutzername
+                input#username.form-control(type="text" aria-describedby="usernameHelp" placeholder="Benutzername" name="username")
+                small#usernameHelp.form-text.text-muted Geben sie hier ihren gewünschten Benutzernamen ein.
+            .form-group
+                label(for="email") E-Mail-Adresse
+                input#email.form-control(type="email" aria-describedby="emailHelp" placeholder="E-Mail eingeben" name="email")
+                small#emailHelp.form-text.text-muted Ihre E-Mail wird nicht an dritte weitergegeben.
+            .form-group
+                label(for="password") Passwort
+                input#password.form-control(type="password" aria-describedby="passwordHelp" placeholder="Passwort" name="password")
+                small#passwordHelp.form-text.text-muted Passwörter müssen mindestens 8 Zeichen lang sein.
+            .form-group
+                label(for="passwordCompare") Passwort bestätigen
+                input#passwordCompare.form-control(type="password" aria-describedby="passwordCompareHelp" placeholder="Passwort erneut eingeben" name="passwordCompare")
+                small#passwordCompareHelp.form-text.text-muted Bestätigen sie hier ihr Passwort.
+            .form-group
+                label(for="first_name") Vorname
+                input#first_name.form-control(type="text" aria-describedby="first_nameHelp" placeholder="Vornamen eingeben" name="first_name")
+                small#first_nameHelp.form-text.text-muted Dieses Feld darf nicht leer sein.
+            .form-group
+                label(for="last_name") Nachname
+                input#last_name.form-control(type="text" aria-describedby="last_nameHelp" placeholder="Nachnamen eingeben" name="last_name")
+                small#last_nameHelp.form-text.text-muted Dieses Feld darf nicht leer sein.
+            .form-group
+                label(for="birth_date") Geburtsdatum
+                input#birth_date.form-control(type="date" aria-describedby="birth_dateHelp" placeholder="JJJJ-MM-TT" name="birth_date")
+                small#birth_dateHelp.form-text.text-muted Geben sie ihr Geburtsdatum im Format JJJJ-MM-TT an.
+            .form-group
+                button.btn.btn-default(type="submit") Registrieren
