@@ -41,20 +41,12 @@ router.post('/login', passport.authenticate('local',  { successRedirect: '/profi
 router.post('/register',[
     check('username').isLength({min: 5, max: 50}).withMessage('Benutzername muss mindestens 5 und maximal 50 Zeichen lang sein')
     ,
-    /*
-    check('username').custom(
-        (value,{req, loc, path}) => {
-            sqlcon.connection.query('SELECT benutzername FROM person WHERE benutzername = "'+value+'"', function(err, res, fields){
-                if(err) throw err;
-                return res
-            })
-            .then(res => {
-                if(res[0]){
-                    return Promise.reject('Benutzername ist bereits vergeben.')
-                }
-            })
-            })
-    ,*/
+    check('username').custom((value, { req }) => {
+        new Promise(doesUserExist(resolve, reject)).then(() => {
+              return value;
+      })
+  })
+    ,
     check('email').isEmail().trim().normalizeEmail({all_lowercase: true}).withMessage('Geben sie eine gültige E-Mail-Adresse an.')
     ,
     check('password').isLength({min: 8, max: 50}).withMessage('Passwort muss mindestens 8 Zeichen lang sein.')
@@ -84,3 +76,13 @@ router.post('/contact',[
 ], contact_submit);
 router.post('/find', find_submit)
 module.exports = router;
+
+function doesUserExist(resolve, reject){
+    sqlcon.connection.query('SELECT * FROM person WHERE benutzername = "'+username+ '";',[resolve, reject], function(err,res,fields){
+        if(res[0]){
+            reject();
+        }else{
+            resolve();
+        }
+    })
+}

@@ -1,22 +1,24 @@
-table.table
+.container
 	-for(i = 0; i < results.length; i++){
-		thead
-			tr
-				th(scope='col') Schritt
-				th(scope='col') Name
-				th(scope='col') Minimales Alter
-				th(scope='col') Maximales Alter
-				th(scope='col') Beschreibung
-				th(scope='col') Erreicht durch
-		tbody
-			- var iterator = 1; for(j = results[i].array.length-1; j >= 0; j--){ 
+		table.table.table-sm
+			thead
+				p.weg= "Bildungsweg "+(i+1)
 				tr
-					th(scope='row')= iterator
-					td= results[i].array[j].name
-					td= results[i].array[j].min_alter
-					td= results[i].array[j].max_alter
-					td= results[i].array[j].beschreibung
-					td= results[i].array[j].erreicht_durch
-			-iterator++;}
+					th(scope='col') Schritt
+					th(scope='col') Name
+					th(scope='col') Minimales Alter
+					th(scope='col') Maximales Alter
+					th(scope='col') Beschreibung
+					th(scope='col') Erreicht durch
+			tbody
+				- var iterator = 1; for(j = results[i].array.length-1; j >= 0; j--){ 
+					tr
+						th(scope='row')= iterator
+						td= results[i].array[j].name
+						td= results[i].array[j].min_alter
+						td= results[i].array[j].max_alter
+						td= results[i].array[j].beschreibung
+						td= results[i].array[j].erreicht_durch
+				-iterator++;}
 		br
-	-}
+		-}
