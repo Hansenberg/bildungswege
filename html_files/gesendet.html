@@ -9,46 +9,41 @@
 
     <title>Gesendet</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="navbar">
-      <a class="navbar-brand" href="index.html">Bildungswege</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar"><a class="navbar-brand" href="/">Dein Bildungsweg</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="find.html">Finde deinen Weg!</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="about.html">Über uns</a>
-          </li>
+          <li class="nav-item active"><a class="nav-link" href="find">Finde deinen Weg!</a></li>
+          <li class="nav-item active"><a class="nav-link" href="about">Über uns</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
+            <li class="nav-item active"><a class="btn btn-default nav-button mt-1 mt-lg-0 mb-2 mb-lg-0" href="register">Registrieren</a></li>
+            <li class="nav-item active"><a class="btn btn-default nav-button ml-lg-1" href="login">Anmelden</a></li>
+          </ul>
         </ul>
       </div>
     </nav>
 
-    <article>
+    <article class="container-fluid" id="jumbotron-div"><div class="jumbotron" id="jumbotron1" style="background-color: #ffffff">
         <h1>Ihre Nachricht wurde erfolgreich gesendet.</h1>
 
         <p>Wir werden uns umgehend mit Ihnen in Verbindung setzen.</p><br>
         <p>Vielen Dank!</p>
-    </article>
+      </div></article>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
 
-    <footer class="footer">
-        <div class="container">
-          <span class="text-muted"><a class="text-muted" href="impressum.html">Impressum</a> <a class="text-muted ml-1" href="datenschutz.html">Datenschutzerklärung</a></span>
-        </div>
-    </footer>
+    <footer class="footer text-center"><span class="text-muted text-center my-auto"><a class="text-muted" href="impressum">Impressum</a><a class="text-muted ml-2" href="datenschutz">Datenschutzerklärung</a><a class="text-muted ml-2" href="contact">Kontakt</a></span></footer>
   </body>
 </html>
