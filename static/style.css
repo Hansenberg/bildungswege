@@ -65,3 +65,6 @@ html {
     font-size: 40px;
     color: #7e0006
 }
+li.list-group-item{
+    background-color: #f2f2f2;
+}

@@ -1,9 +1,10 @@
 article#jumbotron-div.container.my-2.mx-auto
     #jumbotron1.jumbotron(style='background-color: #ffffff')
-        p.lead Ihr Profil
-        p Benutzername: #{username}
-        p E-Mail: #{email}
-        p Vorname: #{first_name}
-        p Nachname: #{last_name}
-        p Geburtsdatum: #{birth_date}
-        p Kontotyp: #{account}
+        h1.lead Ihr Profil
+        ul.list-group
+            li.list-group-item Benutzername: #{username}
+            li.list-group-item E-Mail: #{email}
+            li.list-group-item Vorname: #{first_name}
+            li.list-group-item Nachname: #{last_name}
+            li.list-group-item Geburtsdatum: #{birth_date}
+            li.list-group-item Kontotyp: #{account}
