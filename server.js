@@ -35,7 +35,7 @@ var sessionOptions = {
     cookie :{
         httpOnly: false,
         secure:false,
-        maxAge: 3600000,
+        maxAge: new Date(2147000000),
         sameSite: true
     }
 }
