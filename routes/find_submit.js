@@ -23,7 +23,6 @@ module.exports = function(req, res){
         })
         function wait(num){
             amountOfQueries+=num;
-            console.log("queries"+amountOfQueries);
             if(amountOfQueries==0){
                 send_result()
             }
@@ -45,13 +44,11 @@ module.exports = function(req, res){
                 }
                 
             }else{
-                console.log(res[0])
                 wait(-1);
             }
         }
         }
         function append_to_array(res, pathindex){
-            console.log(pathindex);
             if(weg[pathindex]){
                 weg[pathindex].array.push(res);
             }else{
@@ -72,6 +69,7 @@ module.exports = function(req, res){
 
     }
     else{
+        req.flash('error','Sie müssen sich wieder anmelden.');
         res.redirect('/login');
     }
 }

@@ -20,6 +20,7 @@ var find = pug.compileFile('./templates/find.pug', {pretty:true});
         }
 
     } else {
+        req.flash('error','Sie müssen sich zuerst anmelden.');
         res.redirect('/login');
     }
     

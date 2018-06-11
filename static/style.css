@@ -68,3 +68,6 @@ html {
 li.list-group-item{
     background-color: #f2f2f2;
 }
+a.ml-1.reminder{
+    color: #000000;
+}
