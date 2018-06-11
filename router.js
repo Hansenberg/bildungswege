@@ -36,12 +36,49 @@ router.get('/settings', settings);
 router.get('/contact', contact);
 
 //set up post routes
-router.post('/login', passport.authenticate('local',  { successRedirect: '/profile', failureRedirect: '/login'}), login_submit);
+router.post('/login', passport.authenticate('local',  { successRedirect: '/find', failureRedirect: '/login', failureFlash:'Ungültiger Benutzername oder Passwort.'}), login_submit);
 //validate 
 router.post('/register',[
     check('username').isLength({min: 5, max: 50}).withMessage('Benutzername muss mindestens 5 und maximal 50 Zeichen lang sein')
     ,
+    check('username').custom((value, {req, location, path})=>{
+        return new Promise(function(resolve, reject){
+            if(!value){value=''}
+            sqlcon.connection.query('SELECT benutzername FROM person WHERE benutzername = "'+value+ '";', function(err,res,fields){
+                console.log(res[0])
+                if(res[0]){
+                    reject(new Error('Der angegebene Benutzername ist vergeben.'));
+                }else{
+                    resolve(value);
+                }
+            })
+
+        }).then(function(value){
+            if(value) return value;
+        }, function(err){
+            throw err;
+        })
+    })
+    ,
     check('email').isEmail().trim().normalizeEmail({all_lowercase: true}).withMessage('Geben sie eine gültige E-Mail-Adresse an.')
+    ,
+    check('email').custom((value, {req, location, path})=>{
+        return new Promise(function(resolve, reject){
+            sqlcon.connection.query('SELECT benutzername FROM person WHERE email = "'+value+ '";', function(err,res,fields){
+                console.log(res[0])
+                if(res[0]){
+                    reject(new Error('Die angegebene E-Mail-Adresse wird von einem existierenden Konto genutzt.'));
+                }else{
+                    resolve(value);
+                }
+            })
+
+        }).then(function(value){
+            return value;
+        }, function(err){
+            throw err;
+        })
+    })
     ,
     check('password').isLength({min: 8, max: 50}).withMessage('Passwort muss mindestens 8 Zeichen lang sein.')
     ,
@@ -72,13 +109,7 @@ router.post('/find', find_submit)
 module.exports = router;
 
 function doesUserExist(username){
-    sqlcon.connection.query('SELECT * FROM person WHERE benutzername = "'+username+ '";', function(err,res,fields){
-        if(res[0]){
-            doesExist(true);
-        }else{
-            doesExist(false);
-        }
-    })
+
     return true;
     function doesExist(bool){
         return bool;

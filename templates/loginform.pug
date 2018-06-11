@@ -1,6 +1,10 @@
 article#jumbotron-div.container.my-2.mx-auto
     #jumbotron1.jumbotron(style='background-color: #ffffff')
         h1 Anmelden
+        -if(errors)
+            each val in errors
+                .alert.alert-danger(role='alert')
+                    span= val
         form(method="POST" action="login")
             .form-group
                 label(for="username") Benutzername

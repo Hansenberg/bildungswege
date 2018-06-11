@@ -8,7 +8,7 @@ module.exports = function(req, res){
         res.redirect('/profile');
     } else {
         res.send(main({
-            content: loginform()
+            content: loginform({errors: req.flash()})
         }));
     }
 }
