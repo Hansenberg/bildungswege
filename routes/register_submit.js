@@ -37,7 +37,7 @@ module.exports = function(req, res){
         var password_hash;
         bcrypt.hash(password, 10, function(err, hash) {
             if(err) throw err;
-            sqlcon.connection.query('INSERT INTO person (benutzername, passwort, vorname, name, email, geburtsdatum, kontotyp) VALUES ("'+mysql.escape(username)+'", "' + hash +'", "' + mysql.escape(first_name) + '", "' + mysql.escape(last_name) + '", "' + mysql.escape(email) + '", DATE("' + mysql.escape(birth_date)+'"), "normal");', function(err, res,fields){
+            sqlcon.connection.query('INSERT INTO person (benutzername, passwort, vorname, name, email, geburtsdatum, kontotyp) VALUES ("'+mysql.escape(username)+'", "' + hash +'", "' + mysql.escape(first_name) + '", "' + mysql.escape(last_name) + '", "' + mysql.escape(email) + '", DATE("' + birth_date+'"), "normal");', function(err, res,fields){
                 if(err) throw err;
                 success()
             } )

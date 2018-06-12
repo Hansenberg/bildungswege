@@ -55,7 +55,7 @@ passport.serializeUser(function(user, done) {
 //deserializing user from the session by running sql query that takes data from user with user id stored in the session
 passport.deserializeUser(function(username, done) {
 var user_db;
-sqlcon.connection.query('SELECT * FROM person WHERE benutzername ="'+ mysql.escape(username) + '"', function(err, res, fields){
+sqlcon.connection.query('SELECT * FROM person WHERE benutzername ="'+ username + '"', function(err, res, fields){
         if(err){ 
             console.log(err); 
             return done(err, null);
