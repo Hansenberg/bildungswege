@@ -107,11 +107,3 @@ router.post('/contact',[
 ], contact_submit);
 router.post('/find', find_submit)
 module.exports = router;
-
-function doesUserExist(username){
-
-    return true;
-    function doesExist(bool){
-        return bool;
-    }
-}
