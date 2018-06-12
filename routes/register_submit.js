@@ -1,5 +1,6 @@
 var pug = require('pug');
 var bcrypt = require('bcrypt');
+var mysql = require('mysql')
 var sql_connect = require('../custom_modules/sql_connect');
 var sqlcon = new sql_connect();
 const{check, validationResult} = require('express-validator/check');
@@ -36,7 +37,7 @@ module.exports = function(req, res){
         var password_hash;
         bcrypt.hash(password, 10, function(err, hash) {
             if(err) throw err;
-            sqlcon.connection.query('INSERT INTO person (benutzername, passwort, vorname, name, email, geburtsdatum, kontotyp) VALUES ("'+username+'", "' + hash +'", "' + first_name + '", "' + last_name + '", "' + email + '", DATE("' + birth_date+'"), "normal");', function(err, res,fields){
+            sqlcon.connection.query('INSERT INTO person (benutzername, passwort, vorname, name, email, geburtsdatum, kontotyp) VALUES ("'+mysql.escape(username)+'", "' + hash +'", "' + mysql.escape(first_name) + '", "' + mysql.escape(last_name) + '", "' + mysql.escape(email) + '", DATE("' + mysql.escape(birth_date)+'"), "normal");', function(err, res,fields){
                 if(err) throw err;
                 success()
             } )

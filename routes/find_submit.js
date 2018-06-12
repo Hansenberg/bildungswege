@@ -1,5 +1,6 @@
 var sql_connection = require('../custom_modules/sql_connect.js');
 var sqlcon = new sql_connection();
+var mysql = require('mysql')
 var pug = require('pug');
 var path_obj = require('../models/path.js');
 
@@ -14,7 +15,7 @@ module.exports = function(req, res){
             sqlcon.connection.query('SELECT * FROM abschluss WHERE id= '+ id + ';', function(err, res, fields){
                 if(err) console.log(err);
                 append_to_array(res[0], pathindex);
-                sqlcon.connection.query('SELECT haengt_ab FROM haengt_ab_a WHERE id ='+res[0].id+';', function(err, res, fields){
+                sqlcon.connection.query('SELECT haengt_ab FROM haengt_ab_a WHERE id ='+mysql.escape(res[0].id)+';', function(err, res, fields){
                     if(err) console.log(err);
                     handle_subqueries(res, pathindex);
                 })

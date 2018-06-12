@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var router = require('./router.js');
 var session = require('express-session');
+var mysql = require('mysql');
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 var MySQLStore = require('express-mysql-session')(session);
@@ -54,7 +55,7 @@ passport.serializeUser(function(user, done) {
 //deserializing user from the session by running sql query that takes data from user with user id stored in the session
 passport.deserializeUser(function(username, done) {
 var user_db;
-sqlcon.connection.query('SELECT * FROM person WHERE benutzername ="'+username + '"', function(err, res, fields){
+sqlcon.connection.query('SELECT * FROM person WHERE benutzername ="'+ mysql.escape(username) + '"', function(err, res, fields){
         if(err){ 
             console.log(err); 
             return done(err, null);
@@ -70,7 +71,8 @@ var deserialize = function(sqlResult, err){
 });
 
 passport.use(new LocalStrategy(function(username, password, done){
-    sqlcon.connection.query('SELECT passwort FROM person WHERE benutzername = "'+ username + '"', function(err, res, fields){
+
+    sqlcon.connection.query('SELECT passwort FROM person WHERE benutzername = "'+ mysql.escape(username) + '"', function(err, res, fields){
         if(err){
             throw err;
         }else{
@@ -84,7 +86,7 @@ passport.use(new LocalStrategy(function(username, password, done){
         var resultPassword = sqlResult[0].passwort;
         bcrypt.compare(password, resultPassword, function(err, res) {
             if(res){
-                sqlcon.connection.query('SELECT * FROM person where benutzername = "' + username + '"', function(err, res, fields){
+                sqlcon.connection.query('SELECT * FROM person where benutzername = "' + mysql.escape(username) + '"', function(err, res, fields){
                     if(err) throw err;
                     ret_user(res);
                 })
