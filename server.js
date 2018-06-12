@@ -71,8 +71,9 @@ var deserialize = function(sqlResult, err){
 });
 
 passport.use(new LocalStrategy(function(username, password, done){
-
-    sqlcon.connection.query('SELECT passwort FROM person WHERE benutzername = "'+ mysql.escape(username) + '"', function(err, res, fields){
+    sql = "SELECT passwort FROM person WHERE benutzername =" + mysql.escape(username);
+    console.log(sql)
+    sqlcon.connection.query('SELECT passwort FROM person WHERE benutzername = '+ mysql.escape(username) + ';', function(err, res, fields){
         if(err){
             throw err;
         }else{
@@ -86,7 +87,7 @@ passport.use(new LocalStrategy(function(username, password, done){
         var resultPassword = sqlResult[0].passwort;
         bcrypt.compare(password, resultPassword, function(err, res) {
             if(res){
-                sqlcon.connection.query('SELECT * FROM person where benutzername = "' + mysql.escape(username) + '"', function(err, res, fields){
+                sqlcon.connection.query('SELECT * FROM person where benutzername = ' + mysql.escape(username) +';', function(err, res, fields){
                     if(err) throw err;
                     ret_user(res);
                 })

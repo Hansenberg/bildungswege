@@ -45,7 +45,7 @@ router.post('/register',[
     check('username').custom((value, {req, location, path})=>{
         return new Promise(function(resolve, reject){
             if(!value){value=''}
-            sqlcon.connection.query('SELECT benutzername FROM person WHERE benutzername = "'+ mysql.escape(value)+ '";', function(err,res,fields){
+            sqlcon.connection.query('SELECT benutzername FROM person WHERE benutzername = '+ mysql.escape(value)+ ';', function(err,res,fields){
                 console.log(res[0])
                 if(res[0]){
                     reject(new Error('Der angegebene Benutzername ist vergeben.'));
@@ -65,7 +65,7 @@ router.post('/register',[
     ,
     check('email').custom((value, {req, location, path})=>{
         return new Promise(function(resolve, reject){
-            sqlcon.connection.query('SELECT benutzername FROM person WHERE email = "'+mysql.escape(value)+ '";', function(err,res,fields){
+            sqlcon.connection.query('SELECT benutzername FROM person WHERE email = '+mysql.escape(value)+ ';', function(err,res,fields){
                 console.log(res[0])
                 if(res[0]){
                     reject(new Error('Die angegebene E-Mail-Adresse wird von einem existierenden Konto genutzt.'));
