@@ -1,4 +1,3 @@
-_Eine live-Version der Seite ist verfügbar unter https://bildungswege.ml_
 # Installation
 ## Installation und Ausführen des Servers
 Um die App auszuführen, installieren sie zuerst Node.js und den package manager npm. Anschließend navigieren sie in einem Kommandozeilenfenster in den Ordner der Repository und geben sie ein:
